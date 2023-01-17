@@ -1,9 +1,9 @@
-import { Button } from "@/components/Button";
-import { Input } from "@/components/Input";
-import { Flex, Heading } from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import { BsEnvelope } from "react-icons/bs";
-import { FiLock } from "react-icons/fi";
+import { Button } from '@/components/Button';
+import { Input } from '@/components/Input';
+import { Flex, Heading } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
+import { BsEnvelope } from 'react-icons/bs';
+import { FiLock } from 'react-icons/fi';
 
 const Form: React.FC<any> = () => {
   const { push } = useRouter();
@@ -23,7 +23,7 @@ const Form: React.FC<any> = () => {
         <Input placeholder="E-Mail" type="email" icon={<BsEnvelope />} />
         <Input placeholder="Senha" type="password" icon={<FiLock />} />
       </Flex>
-      <Button title="Entrar" mt="2.5rem" />
+      <Button title="Entrar" mt="2.5rem" onClick={() => push('/home')} />
       <Heading
         mt="2.5rem"
         color="#FF859B"
@@ -32,9 +32,9 @@ const Form: React.FC<any> = () => {
         fontSize="16px"
         textAlign="center"
         _hover={{
-          cursor: "pointer",
+          cursor: 'pointer',
         }}
-        onClick={() => push("/signup")}
+        onClick={() => push('/signup')}
       >
         Criar conta
       </Heading>

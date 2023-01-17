@@ -1,17 +1,19 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading, Text, HeadingProps } from "@chakra-ui/react";
 
-interface HeaderLogoProps {
+interface HeaderLogoProps extends HeadingProps {
   hasSubTitle?: boolean;
+  fontSize?: string
 }
 
-const HeaderLogo: React.FC<HeaderLogoProps> = ({ hasSubTitle = true }) => {
+const HeaderLogo: React.FC<HeaderLogoProps> = ({ hasSubTitle = true, fontSize = '48px',...rest }) => {
   return (
     <Flex flexDir="column">
       <Heading
         color="#FF859B"
         fontWeight="700"
-        fontSize="48px"
+        fontSize={fontSize}
         fontFamily="Roboto Slab"
+        {...rest}
       >
         RocketMovies
       </Heading>

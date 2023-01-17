@@ -3,8 +3,8 @@ import {
   InputProps as InputPropsChakra,
   InputGroup,
   InputLeftElement,
-} from "@chakra-ui/input";
-import { ReactNode } from "react";
+} from '@chakra-ui/input';
+import { ReactNode } from 'react';
 
 interface InputProps extends InputPropsChakra {
   icon?: ReactNode;
@@ -13,9 +13,11 @@ interface InputProps extends InputPropsChakra {
 const Input: React.FC<InputProps> = ({ icon, ...rest }) => {
   return (
     <InputGroup borderRadius="10px">
-      <InputLeftElement pointerEvents="none" color="#948F99">
-        {icon}
-      </InputLeftElement>
+      {icon && (
+        <InputLeftElement pointerEvents="none" color="#948F99">
+          {icon}
+        </InputLeftElement>
+      )}
 
       <InputChakra
         _active={{}}
@@ -24,7 +26,7 @@ const Input: React.FC<InputProps> = ({ icon, ...rest }) => {
         border="none"
         background="#262529"
         _placeholder={{
-          color: "#948F99",
+          color: '#948F99',
         }}
         {...rest}
       />
