@@ -53,9 +53,13 @@ const Details: React.FC = () => {
           </Text>
         </Flex>
         <Flex alignItems="center" gap=".5rem">
-          <BiTime color="#FF859B" size={24} style={{
-            marginTop: "-2px"
-          }}/>
+          <BiTime
+            color="#FF859B"
+            size={24}
+            style={{
+              marginTop: '-2px',
+            }}
+          />
           <Text
             as="h3"
             color="#F4EDE8"
@@ -72,6 +76,18 @@ const Details: React.FC = () => {
         {movies.tag.map((t, i) => {
           return <Tag key={i} title={t} />;
         })}
+      </Flex>
+
+      <Flex w="100%">
+        <Text
+          as="p"
+          color="#F4EDE8"
+          fontFamily="Roboto"
+          fontSize="16px"
+          fontWeight="400"
+        >
+          {movies.description}
+        </Text>
       </Flex>
     </Flex>
   );
