@@ -1,9 +1,8 @@
-import { Flex, Heading, Text, Image } from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import { BsArrowLeft, BsCamera } from "react-icons/bs";
+import { BackButton } from "@/components/BackButton";
+import { Flex, Image } from "@chakra-ui/react";
+import { BsCamera } from "react-icons/bs";
 
 const Header: React.FC = () => {
-  const { back } = useRouter();
 
   return (
     <Flex
@@ -14,25 +13,8 @@ const Header: React.FC = () => {
       alignItems="center"
     >
       <Flex mx="144px" justify="space-between" w="100%">
-        <Flex
-          alignItems="center"
-          gap="0.5rem"
-          onClick={() => back()}
-          _hover={{
-            cursor: "pointer",
-          }}
-        >
-          <BsArrowLeft color="#FF859B" />
-          <Heading
-            as="h2"
-            fontSize="16px"
-            fontWeight="400"
-            fontFamily="Roboto Slab"
-            color="#FF859B"
-          >
-            Voltar
-          </Heading>
-        </Flex>
+        <BackButton />
+
         <Flex position="relative" w="186px" h="186px" mt="146px">
           <Flex
             bg="#FF859B"

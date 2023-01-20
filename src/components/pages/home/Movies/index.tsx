@@ -1,4 +1,7 @@
+import { useMoviesContext } from '@/context/MoviesContext';
 import { Flex } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
+import { title } from 'process';
 import { Card } from '../Card';
 
 export interface Movies {
@@ -14,12 +17,14 @@ interface MoviesProps {
 }
 
 const Movies: React.FC<MoviesProps> = ({ movies }) => {
+  const { push } = useRouter();
+  const { setMovies } = useMoviesContext();
   return (
     <Flex
       w="100%"
       h="100%"
       maxH="716px"
-      overflowY="hidden"
+      overflowY="scroll"
       flexDir="column"
       gap="1.5rem"
     >
@@ -30,6 +35,16 @@ const Movies: React.FC<MoviesProps> = ({ movies }) => {
           rating={movie.rating}
           tag={movie.tag}
           description={movie.description}
+          onClick={() => {
+            setMovies({
+              description: movie.description,
+              id: movie.id,
+              rating: movie.rating,
+              tag: movie.tag,
+              title: movie.title,
+            });
+            push('/movie');
+          }}
         />
       ))}
     </Flex>
